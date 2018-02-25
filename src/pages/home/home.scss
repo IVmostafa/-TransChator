@@ -1,3 +1,52 @@
 page-home {
 
 }
+
+.center {
+    margin: auto;
+    text-align: center;
+}
+
+.Verifynumber {
+    color: #0288d1;
+    margin-bottom: 5%;
+}
+
+.message {
+    font-size: 68%;
+}
+
+#country-selecter { 
+    font-size: 75%;
+}
+
+#country-name {
+    width: 70%;
+    border-bottom: 1px solid #0288d1 !important;
+}
+
+#country-code { 
+    padding: 0; 
+    border-bottom: 1px solid #0288d1 !important;
+}
+
+#country-code > *,
+#country-name > * {
+    border: none;
+}
+
+#country-code > *,
+#country-name > * {
+    padding: 0;
+    margin: 0;
+}
+
+#number {
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid #0288d1 !important;
+}
+
+#phone-number {
+    font-size: 75%;
+}

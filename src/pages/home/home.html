@@ -1,14 +1,30 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+        <ion-list>
+            <h6 class='center Verifynumber'>Verify your phone number</h6>
+            <p class='center message'>TransChator will send an SMS message to verify your phone number.</p>
+            <p class='center message'>Enter your country code and phone number.</p>
+
+            <ion-item class='center' id='country-name' (click)='chooseCountry()'> 
+                <ion-label class='center' id='country-selecter'>{{ country.name }}</ion-label>
+                <ion-icon small item-end ios="ios-arrow-dropdown" md="md-arrow-dropdown" color="transchator"></ion-icon>
+            </ion-item>
+
+            <ion-item id='phone-number'>
+                <ion-row>
+                    <ion-col>
+                        <ion-item id='country-code'> 
+                            <ion-icon item-start ios="ios-add" md="md-add" small color="grey"></ion-icon>
+                            <ion-input class='center' id='country-selecter' [(ngModel)]='country.code' (keypress)='changeCountry()'></ion-input>
+                        </ion-item>
+                    </ion-col>
+
+                    <ion-col>
+                        <ion-item item-end id='number'>
+                            <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown" small item-start color="light"></ion-icon>
+                            <ion-input class='center' id='country-selecter' [(ngModel)]='country.code' (keypress)='changeCountry()'></ion-input>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+            </ion-item>
+        </ion-list>
 </ion-content>
