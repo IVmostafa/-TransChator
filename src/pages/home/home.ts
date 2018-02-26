@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { FormControl, Validators } from '@angular/forms';
 
@@ -14,7 +14,9 @@ import { CountryChoosePage } from '../country-choose/country-choose'
 })
 export class HomePage {
 
+    @ViewChild('countrySelecter') countrySelecter;
     error:any;
+    countries = [];
     country = {
         name: 'Choose a country',
         code: ''
@@ -26,6 +28,12 @@ export class HomePage {
             this.country.code = navParams.get('country').phoneCode
             console.log(this.country);
         }
+        firebase.database().ref('countriesCodes').on('value', (countries) => {
+            for (var country in countries.val()) {
+                this.countries.push(countries.val()[country]);
+
+            }
+        });
     }
 
     selectNumber() {
@@ -45,6 +53,19 @@ export class HomePage {
     }
 
     changeCountry() {
-        console.log(this.country)
+        if(this.country.code === '') {
+             this.country.name = 'Choose a country'
+        } else {
+            let country = this.countries.find(country => country.phoneCode === this.country.code);
+            if(typeof(country) !== 'undefined') {
+                console.log(country.name);
+                this.country.name = country.name;
+                this.countrySelecter.setFocus();
+            } else {
+                this.country.name = 'invalid country code'
+            }
+            console.log(country);
+            console.log(this.country);
+        }
     }
 }

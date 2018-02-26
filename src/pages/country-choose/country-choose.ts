@@ -26,5 +26,4 @@ export class CountryChoosePage {
     batata(country) {
         this.navCtrl.push(HomePage, { country: country });
     }
-
 }

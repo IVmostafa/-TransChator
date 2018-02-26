@@ -9,19 +9,18 @@
                 <ion-icon small item-end ios="ios-arrow-dropdown" md="md-arrow-dropdown" color="transchator"></ion-icon>
             </ion-item>
 
-            <ion-item id='phone-number'>
+            <ion-item class='center' id='phone-number'>
                 <ion-row>
-                    <ion-col>
+                    <ion-col col-4 id='country-code-wrapper'>
                         <ion-item id='country-code'> 
                             <ion-icon item-start ios="ios-add" md="md-add" small color="grey"></ion-icon>
-                            <ion-input class='center' id='country-selecter' [(ngModel)]='country.code' (keypress)='changeCountry()'></ion-input>
+                            <ion-input class='center' id='country-selecter' [(ngModel)]='country.code' (keyup)='changeCountry()'></ion-input>
                         </ion-item>
                     </ion-col>
 
-                    <ion-col>
+                    <ion-col id='number-wrapper'>
                         <ion-item item-end id='number'>
-                            <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown" small item-start color="light"></ion-icon>
-                            <ion-input class='center' id='country-selecter' [(ngModel)]='country.code' (keypress)='changeCountry()'></ion-input>
+                            <ion-input #countrySelecter class='center' id='country-selecter' placeholder='phone number' [ngModel]='phoneNumber'></ion-input>
                         </ion-item>
                     </ion-col>
                 </ion-row>
