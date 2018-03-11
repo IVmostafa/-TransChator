@@ -1,0 +1,21 @@
+<ion-content padding>
+    <ion-list>
+        <h6 class='center Verifynumber'>Verify </h6>
+        <p class='center message'>Waiting to automatically detect an SMS sent to .</p>
+
+         <ion-item class='center' id='phone-number'>
+            <ion-row>
+                <ion-col col-4 id='country-code-wrapper'>
+                    <ion-item id='country-code'> 
+                        <ion-input class='center' id='code-selecter'></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </ion-item>
+
+        <ion-item class='center' id="verify" item-end>
+            <button ion-button block color="transchator" (click)='selectNumber()'>Next</button>
+        </ion-item>
+        <p class='center note'>Carrier SMS charges may apply</p>
+    </ion-list>
+</ion-content>

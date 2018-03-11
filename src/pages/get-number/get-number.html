@@ -1,0 +1,36 @@
+<ion-content padding>
+    <ion-list>
+        <h6 class='center Verifynumber'>Verify your phone number</h6>
+        <p class='center message'>TransChator will send an SMS message to verify your phone number.</p>
+        <p class='center message'>Enter your country code and phone number.</p>
+
+        <ion-item class='center' id='country-name' (click)='chooseCountry()'> 
+            <ion-label class='center' id='country-selecter'>{{ country.name }}</ion-label>
+            <ion-icon small item-end ios="ios-arrow-dropdown" md="md-arrow-dropdown" color="transchator"></ion-icon>
+        </ion-item>
+
+        <ion-item class='center' id='phone-number'>
+            <ion-row>
+                <ion-col col-4 id='country-code-wrapper'>
+                    <ion-item id='country-code'> 
+                        <ion-icon item-start id="begin-code" ios="ios-add" md="md-add" small color="grey"></ion-icon>
+                        <ion-input class='center' id='code-selecter' maxlength='3' [(ngModel)]='country.code' (keyup)='changeCountry()'></ion-input>
+                    </ion-item>
+                </ion-col>
+
+                <ion-col id='number-wrapper'>
+                    <ion-item item-end id='phonumber'>
+                        <ion-input #number class='center' id="input-number" placeholder='phone number' [(ngModel)]='phoneNumber'></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </ion-item>
+        
+        <div id="recaptcha-container"></div>
+
+        <ion-item class='center' id="verify" item-end>
+            <button ion-button block color="transchator" (click)='selectNumber()'>Next</button>
+        </ion-item>
+        <p class='center note'>Carrier SMS charges may apply</p>
+    </ion-list>
+</ion-content>

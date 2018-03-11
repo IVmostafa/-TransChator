@@ -1,3 +1,22 @@
 page-country-choose {
 
 }
+
+#title {
+    padding-left: 0;
+    background: transparent;
+}
+
+#search-country {
+    margin: 0;
+}
+
+#country {
+    padding-left: 0;
+    border-bottom: 1px solid lightgrey;
+}
+
+#country > .item-inner > .input-wrapper > .label {
+    padding-top: 15px;
+    padding-bottom: 10px;
+}

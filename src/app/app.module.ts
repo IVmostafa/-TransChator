@@ -7,6 +7,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { CountryChoosePage } from '../pages/country-choose/country-choose'
+import { GetNumberPage } from '../pages/get-number/get-number'
+import { VerifyNumberPage } from '../pages/verify-number/verify-number'
 
 import * as firebase from 'firebase';
 import { firebaseConfig } from '../firebaseConfig';
@@ -17,7 +19,9 @@ firebase.initializeApp(firebaseConfig)
     declarations: [
         MyApp,
         HomePage,
-        CountryChoosePage
+        GetNumberPage,
+        CountryChoosePage,
+        VerifyNumberPage
     ],
     imports: [
         BrowserModule,
@@ -27,7 +31,9 @@ firebase.initializeApp(firebaseConfig)
     entryComponents: [
         MyApp,
         HomePage,
-        CountryChoosePage
+        GetNumberPage,
+        CountryChoosePage,
+        VerifyNumberPage
     ],
     providers: [
         StatusBar,
