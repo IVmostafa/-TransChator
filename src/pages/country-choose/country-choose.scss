@@ -3,12 +3,26 @@ page-country-choose {
 }
 
 #title {
-    padding-left: 0;
+    padding-left: 16px;
     background: transparent;
+}
+
+#country-search > .item-inner > .input-wrapper > .label > input {
+    border: none;
+}
+
+#country-search,
+#country-search-title {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 #search-country {
     margin: 0;
+}
+
+#countries > .scroll-content {
+    padding-top: 0;
 }
 
 #country {
@@ -19,4 +33,29 @@ page-country-choose {
 #country > .item-inner > .input-wrapper > .label {
     padding-top: 15px;
     padding-bottom: 10px;
+}
+
+#country > .item-inner > .input-wrapper > .label > h6 {
+    font-weight: bold;
+    color: #2d2d2d;
+}
+
+#country > .item-inner > .input-wrapper > .label > p {
+    font-size: 1.3rem;
+    color: grey;
+}
+
+#country > .item-inner > h5 {
+    font-weight: bold;
+    color: grey;
+}
+
+#search-country-message {
+    height: 60px;
+    padding-left: 0;
+    border-bottom: 1px solid lightgrey;
+}
+
+#search-country-message > .item-inner > .input-wrapper > .label {
+    padding-top: 8px;
 }

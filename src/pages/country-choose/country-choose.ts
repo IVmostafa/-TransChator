@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import * as firebase from 'firebase';
@@ -12,9 +12,12 @@ import { GetNumberPage } from '../get-number/get-number'
 })
 export class CountryChoosePage {
 
+    @ViewChild('searchChild') searchChildView;
     selectedCountry;
     countries = [];
+    allCountries = [];
     search = false;
+    searchString = '';
 
     constructor(public navCtrl: NavController, public navParams: NavParams) {
         if(typeof(navParams.get('country')) !== 'undefined') {
@@ -23,13 +26,44 @@ export class CountryChoosePage {
         }
         firebase.database().ref('countriesCodes').on('value', (countries) => {
             for (var country in countries.val()) {
-                this.countries.push(countries.val()[country]);
-
+                this.allCountries.push(countries.val()[country]);
+                this.countries = this.allCountries;
             }
         });
     }
 
     sendCountry(country) {
         this.navCtrl.push(GetNumberPage, { country: country });
+    }
+
+    startSearch() {
+        this.search = true;
+        this.searchChildView.setFocus();
+    }
+
+    back() {
+        if (this.search) {
+            this.search = false;
+        } else {
+            this.sendCountry(this.selectedCountry);
+        }
+    }
+
+    searchCountry() {
+        if(this.searchString == '') {
+            this.countries = this.allCountries;
+        } else if(this.searchString.trimLeft() != this.searchString) {
+            this.countries = [];
+        } else {
+            console.log(this.searchString);
+            let countries = this.countries.filter((country) => 
+                country.name.match(new RegExp(this.searchString, 'i'))
+                || (country.enName
+                    && country.enName.match(new RegExp(this.searchString, 'i')))
+                || country.phoneCode.indexOf(this.searchString) == 0
+            );
+            console.log(countries);
+            this.countries = countries;
+        }
     }
 }

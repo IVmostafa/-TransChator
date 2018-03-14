@@ -30,7 +30,7 @@ export class GetNumberPage {
         ) {
         if(typeof(navParams.get('country')) !== 'undefined') {
             this.country.name = navParams.get('country').name;
-            this.country.code = navParams.get('country').phoneCode
+            this.country.code = navParams.get('country').phoneCode || navParams.get('country').code
             console.log(this.country);
         }
         firebase.database().ref('countriesCodes').on('value', (countries) => {
@@ -81,9 +81,10 @@ export class GetNumberPage {
         if(this.country.code === '') {
              this.country.name = 'Choose a country'
         } else {
-            let country = this.countries.find(country => country.phoneCode === this.country.code);
-            if(typeof(country) !== 'undefined') {
-                this.country.name = country.name;
+            let country = this.countries.filter(country => country.phoneCode === this.country.code);
+            if(typeof(country[country.length - 1]) !== 'undefined') {
+                console.log(country[country.length - 1]);
+                this.country.name = country[country.length - 1].name;
                 this.number.setFocus();
             } else {
                 this.country.name = 'invalid country code'

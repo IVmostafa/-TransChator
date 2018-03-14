@@ -1,25 +1,51 @@
 <ion-header>
-    <ion-navbar *ngIf='!search'>
         <ion-item id='title'>
-            <ion-label>Choose a country</ion-label>
-            <button ion-button clear large item-end id="search-country" (click)='search = true'>
-                <ion-icon ios="ios-search" md="md-search" color="transchator"></ion-icon>
-            </button>
+            <ion-icon item-start
+                ios="ios-arrow-back"
+                md="md-arrow-back"
+                color="transchator"
+                (click)='back()'>
+            </ion-icon>
+            <ion-item item-end
+                *ngIf='!search'
+                id='country-search-title'>
+                <ion-label
+                    color="transchator">
+                    Choose a country
+                </ion-label>
+                <ion-icon item-end
+                    ios="ios-search"
+                    md="md-search"
+                    color="transchator"
+                    (click)='startSearch()'>
+                </ion-icon>
+            </ion-item>
+
+            <ion-item item-end 
+                *ngIf='search'
+                id='country-search'>
+                <input type="text"
+                    #searchChild
+                    [(ngModel)]='searchString'
+                    (keyup)='searchCountry()'
+                    placeholder='Search countries'/>
+            </ion-item>
+
         </ion-item>
-    </ion-navbar>
-    <ion-item *ngIf='search'>
-        <ion-input placeholder='Search countries'></ion-input>
-    </ion-item>
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding id='countries'>
     <ion-list>
         <ion-item id='country' *ngFor='let country of countries' (click)='sendCountry(country)'>
-            <h3>{{ country.name }}</h3>
+            <h6>{{ country.name }}</h6>
             <p *ngIf='country.enName'>{{ country.enName }}</p>
-            <h4 item-end>+{{ country.phoneCode }}</h4>
-            <ion-icon *ngIf='country.phoneCode == selectedCountry.code' item-end small ios="ios-checkmark" md="md-checkmark" color="transchator"></ion-icon>
+            <h5 item-end>+{{ country.phoneCode }}</h5>
+            <ion-icon *ngIf='country.name == selectedCountry.name' item-end small ios="ios-checkmark" md="md-checkmark" color="transchator"></ion-icon>
+        </ion-item>
+
+        <ion-item id='search-country-message' class='center' *ngIf='countries.length == 0'>
+            <h3>No matches found</h3>
         </ion-item>
     </ion-list>
 
