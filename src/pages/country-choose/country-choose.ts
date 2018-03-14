@@ -12,7 +12,6 @@ import { GetNumberPage } from '../get-number/get-number'
 })
 export class CountryChoosePage {
 
-    @ViewChild('searchChild') searchChildView;
     selectedCountry;
     countries = [];
     allCountries = [];
@@ -38,7 +37,6 @@ export class CountryChoosePage {
 
     startSearch() {
         this.search = true;
-        this.searchChildView.setFocus();
     }
 
     back() {

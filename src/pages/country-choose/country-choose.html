@@ -21,14 +21,14 @@
                 </ion-icon>
             </ion-item>
 
-            <ion-item item-end 
+            <ion-item item-end
                 *ngIf='search'
                 id='country-search'>
-                <input type="text"
+                <ion-input type="text"
                     #searchChild
                     [(ngModel)]='searchString'
                     (keyup)='searchCountry()'
-                    placeholder='Search countries'/>
+                    placeholder='Search countries'></ion-input>
             </ion-item>
 
         </ion-item>
@@ -41,7 +41,16 @@
             <h6>{{ country.name }}</h6>
             <p *ngIf='country.enName'>{{ country.enName }}</p>
             <h5 item-end>+{{ country.phoneCode }}</h5>
-            <ion-icon *ngIf='country.name == selectedCountry.name' item-end small ios="ios-checkmark" md="md-checkmark" color="transchator"></ion-icon>
+            <ion-icon item-end
+                small
+                *ngIf='country.name == selectedCountry.name'
+                ios="ios-checkmark"
+                md="md-checkmark"
+                color="transchator"></ion-icon>
+            <button item-end
+                small
+                *ngIf='country.name != selectedCountry.name'
+                clear></button>
         </ion-item>
 
         <ion-item id='search-country-message' class='center' *ngIf='countries.length == 0'>

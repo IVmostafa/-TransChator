@@ -17,17 +17,21 @@ page-country-choose {
     margin-bottom: 0;
 }
 
-#search-country {
-    margin: 0;
+#country-search > .item-inner {
+    box-shadow: none;
 }
 
 #countries > .scroll-content {
-    padding-top: 0;
+    padding-top: 6px;
 }
 
 #country {
     padding-left: 0;
     border-bottom: 1px solid lightgrey;
+}
+
+#country > .item-inner {
+    padding-right: 0; 
 }
 
 #country > .item-inner > .input-wrapper > .label {
@@ -48,6 +52,17 @@ page-country-choose {
 #country > .item-inner > h5 {
     font-weight: bold;
     color: grey;
+}
+
+#country > .item-inner > .icon {
+    margin-right: 0;
+}
+
+#country > .item-inner > button {
+    margin-right: 0;
+    width: 13.5px;
+    border: none;
+    background-color: transparent;
 }
 
 #search-country-message {
