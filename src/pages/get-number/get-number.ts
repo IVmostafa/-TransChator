@@ -60,7 +60,8 @@ export class GetNumberPage {
             .then(function (confirmationResult) {
                 that.navCtrl.push(VerifyNumberPage, {
                     id: confirmationResult.verificationId,
-                    phoneNumber: that.phoneNumber
+                    phoneNumber: that.phoneNumber,
+                    country: that.country
                 });
             }).catch(function (error) {
                 console.log(error.message);

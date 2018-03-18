@@ -1,21 +1,20 @@
 <ion-content padding>
     <ion-list>
-        <h6 class='center Verifynumber'>Verify </h6>
-        <p class='center message'>Waiting to automatically detect an SMS sent to .</p>
+        <h6 class='center Verifynumber'>Verify {{ phoneNumber }}</h6>
+        <p class='center message'>
+            Waiting to automatically detect an SMS sent to 
+            <b>{{ phoneNumber }}</b>.
+            </p>
 
-         <ion-item class='center' id='phone-number'>
-            <ion-row>
-                <ion-col col-4 id='country-code-wrapper'>
-                    <ion-item id='country-code'> 
-                        <ion-input class='center' id='code-selecter'></ion-input>
-                    </ion-item>
-                </ion-col>
-            </ion-row>
+         <ion-item class='center' id='verification-code-item'>
+            <ion-item id='verification-code-wrapper'> 
+                <ion-input 
+                    class='center'
+                    id='verification-code'
+                    placeholder='&#x2012; &#x2012; &#x2012;  &#x2012; &#x2012; &#x2012;'
+                    [(ngModel)]='code'
+                    (keyup)='verify()'></ion-input>
+            </ion-item>
         </ion-item>
-
-        <ion-item class='center' id="verify" item-end>
-            <button ion-button block color="transchator" (click)='selectNumber()'>Next</button>
-        </ion-item>
-        <p class='center note'>Carrier SMS charges may apply</p>
     </ion-list>
 </ion-content>

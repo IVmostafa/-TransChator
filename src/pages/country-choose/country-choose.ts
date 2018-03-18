@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import * as firebase from 'firebase';
@@ -16,7 +16,7 @@ export class CountryChoosePage {
     countries = [];
     allCountries = [];
     search = false;
-    searchString = '';
+    searchString:any = '';
 
     constructor(public navCtrl: NavController, public navParams: NavParams) {
         if(typeof(navParams.get('country')) !== 'undefined') {
